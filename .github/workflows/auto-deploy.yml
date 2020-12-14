@@ -20,5 +20,6 @@ jobs:
           use_insecure_cipher: true
           script: |
             cd /home3/bstanley/preview.seguemedia.com
-            git pull origin master
+            git checkout master
+            git pull
             git status
