@@ -12,6 +12,8 @@ jobs:
       - name: Deploy to Preview
         if: github.ref == 'refs/heads/develop'
         uses: appleboy/ssh-action@master
+        env:
+          DB_NAME: database_name_preview
         with:
           host: seguemedia.com
           username: bstanley
@@ -28,6 +30,8 @@ jobs:
       - name: Deploy to Production
         if: github.ref == 'refs/heads/master'
         uses: appleboy/ssh-action@master
+        env:
+          DB_NAME: database_name_production
         with:
           host: seguemedia.com
           username: bstanley
