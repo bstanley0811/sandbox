@@ -24,7 +24,7 @@ jobs:
             git checkout develop
             git pull
             git status
-            export DB_NAME=database_name_preview
+            echo "DB_NAME=name_preview\nDB_HOST=host_preview" > .env
       
       - name: Deploy to Production
         if: github.ref == 'refs/heads/master'
@@ -41,4 +41,4 @@ jobs:
             git checkout master
             git pull
             git status
-            export DB_NAME=database_name_production
+            echo "DB_NAME=name_prod\nDB_HOST=host_prod" > .env
