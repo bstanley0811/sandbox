@@ -1,5 +1,8 @@
 <?php
-  $db = getenv('DB_NAME');
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, '.env');
+  $dotenv->load();
+
+  $db = $_ENV['DB_NAME'];
 ?>
 
 <h1>First Auto Deploy That Worked!</h1>
