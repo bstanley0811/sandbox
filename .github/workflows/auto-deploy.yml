@@ -16,6 +16,7 @@ jobs:
           username: bstanley
           key: ${{ secrets.SANDBOX_SSH_KEY }}
           port: 2222
+          use_insecure_cipher: true
           script: |
             cd /home3/bstanley/preview.seguemedia.com
             git pull origin master
