@@ -1,0 +1,22 @@
+name: Auto-Deploy
+
+on:
+  push:
+    branches: [ master, develop ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: quick test
+        uses: appleboy/ssh-action@master
+        with:
+          host: seguemedia.com
+          username: bstanley
+          key: ${{ secrets.SANDBOX_SSH_KEY }}
+          port: 22
+          script: |
+            cd /home3/bstanley/preview.seguemedia.com
+            git pull origin master
+            git status
