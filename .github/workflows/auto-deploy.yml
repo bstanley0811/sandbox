@@ -15,7 +15,7 @@ jobs:
           host: seguemedia.com
           username: bstanley
           key: ${{ secrets.SANDBOX_SSH_KEY }}
-          password: ${{ secrets.SANDBOX_SSH_PASSWORD }}
+          passphrase: ${{ secrets.SANDBOX_SSH_PASSWORD }}
           port: 2222
           script: |
             cd /home3/bstanley/preview.seguemedia.com
