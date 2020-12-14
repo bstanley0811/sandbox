@@ -2,7 +2,7 @@ name: Auto-Deploy
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ main, develop ]
 
 jobs:
   deploy:
