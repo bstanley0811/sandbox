@@ -1,2 +1,2 @@
 # sandbox
-Testing auto-deploy
+Testing auto-deploy and env variables
