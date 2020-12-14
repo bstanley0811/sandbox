@@ -2,14 +2,15 @@ name: Auto-Deploy
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ master, develop ]
 
 jobs:
   deploy:
-    name: Deploy
+    name: Auto Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Preview Deploy
+      - name: Deploy to Preview
+        if: github.ref == 'refs/heads/develop'
         uses: appleboy/ssh-action@master
         with:
           host: seguemedia.com
@@ -20,6 +21,22 @@ jobs:
           use_insecure_cipher: true
           script: |
             cd /home3/bstanley/preview.seguemedia.com
+            git checkout develop
+            git pull
+            git status
+      
+      - name: Deploy to Production
+        if: github.ref == 'refs/heads/master'
+        uses: appleboy/ssh-action@master
+        with:
+          host: seguemedia.com
+          username: bstanley
+          key: ${{ secrets.SANDBOX_SSH_KEY }}
+          passphrase: ${{ secrets.SANDBOX_SSH_PASSWORD }}
+          port: 2222
+          use_insecure_cipher: true
+          script: |
+            cd /home3/bstanley/prod.seguemedia.com
             git checkout master
             git pull
             git status
