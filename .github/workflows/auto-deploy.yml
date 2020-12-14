@@ -9,10 +9,10 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: quick test
+      - name: Preview Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: seguemedia.com
+          host: 192.254.190.128
           username: bstanley
           key: ${{ secrets.SANDBOX_SSH_KEY }}
           port: 2222
