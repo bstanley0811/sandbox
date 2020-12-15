@@ -13,8 +13,4 @@
 <h2>Also with ENV variables:</h2>
 <ul>
   <li>Database Name: <?php echo $db ?></li>
-  <li>Database Name: <?php echo $db ?></li>
-  <li>Database Name: <?php echo $db ?></li>
-  <li>Database Name: <?php echo $db ?></li>
-  <li>Database Name: <?php echo $db ?></li>
 </ul>
