@@ -8,7 +8,7 @@
   $env = empty($_ENV['ENVIRONMENT']) ? 'NOT SET' : $_ENV['ENVIRONMENT'];
 ?>
 
-<h1>Auto Deploy Testing to <?php echo $env; ?>!</h1>
+<h1>Auto Deploy Testing to <?php echo ucfirst($env); ?>!</h1>
 <h2>With ENV variables:</h2>
 <ul>
   <li>Database Name: <?php echo $db ?></li>
