@@ -21,8 +21,7 @@ jobs:
           use_insecure_cipher: true
           script: |
             cd /home3/bstanley/preview.seguemedia.com
-            git checkout develop
-            git pull
+            git reset --hard origin/develop
             git status
             echo "DB_NAME=${{ secrets.PREVIEW_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_preview" >> .env
@@ -40,8 +39,7 @@ jobs:
           use_insecure_cipher: true
           script: |
             cd /home3/bstanley/prod.seguemedia.com
-            git checkout master
-            git pull
+            git reset --hard origin/master
             git status
             echo "DB_NAME=${{ secrets.PRODUCTION_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_prod" >> .env
