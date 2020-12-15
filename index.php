@@ -9,7 +9,7 @@
 ?>
 
 <h1>Auto Deploy Testing to <?php echo ucfirst($env); ?>!</h1>
-<h2>With ENV variables:</h2>
+<h2>Also with ENV variables:</h2>
 <ul>
   <li>Database Name: <?php echo $db ?></li>
 </ul>
