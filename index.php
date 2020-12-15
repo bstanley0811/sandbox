@@ -5,6 +5,7 @@
   $dotenv->load();
 
   $db = empty($_ENV['DB_NAME']) ? 'NOT SET' : $_ENV['DB_NAME'];
+  $dbPass = empty($_ENV['DB_PASSWORD']) ? 'NOT SET' : $_ENV['DB_PASSWORD'];
   $env = empty($_ENV['ENVIRONMENT']) ? 'NOT SET' : $_ENV['ENVIRONMENT'];
 ?>
 
@@ -13,4 +14,5 @@
 <h2>Also with ENV variables:</h2>
 <ul>
   <li>Database Name: <?php echo $db ?></li>
+  <li>Database Pasword: <?php echo $dbPass ?></li>
 </ul>
