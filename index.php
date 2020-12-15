@@ -4,11 +4,12 @@
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, '.env');
   $dotenv->load();
 
-  $db = $_ENV['DB_NAME'];
+  $db = empty($_ENV['DB_NAME']) ? 'NOT SET' : $_ENV['DB_NAME'];
+  $env = empty($_ENV['ENVIRONMENT']) ? 'NOT SET' : $_ENV['ENVIRONMENT'];
 ?>
 
-<h1>First Auto Deploy That Worked!</h1>
+<h1>Auto Deploy Testing to <?php echo $env; ?>!</h1>
 <h2>With ENV variables:</h2>
 <ul>
-  <li>Database Name: <?php echo empty($db) ? 'NOT SET' : $db ?></li>
+  <li>Database Name: <?php echo $db ?></li>
 </ul>

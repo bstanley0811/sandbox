@@ -26,7 +26,8 @@ jobs:
             git status
             echo "DB_NAME=${{ secrets.PREVIEW_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_preview" >> .env
-      
+            echo "ENVIRONMENT=preview" >> .env
+
       - name: Deploy to Production
         if: github.ref == 'refs/heads/master'
         uses: appleboy/ssh-action@master
@@ -42,5 +43,6 @@ jobs:
             git checkout master
             git pull
             git status
-             echo "DB_NAME=${{ secrets.PRODUCTION_MYSQL_HOST }}" > .env
+            echo "DB_NAME=${{ secrets.PRODUCTION_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_prod" >> .env
+            echo "ENVIRONMENT=production" >> .env
