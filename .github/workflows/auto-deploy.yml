@@ -24,7 +24,7 @@ jobs:
             git checkout develop
             git pull
             git status
-            echo "DB_NAME=name_preview" > .env
+            echo "DB_NAME=${{ secrets.PREVIEW_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_preview" >> .env
       
       - name: Deploy to Production
@@ -42,5 +42,5 @@ jobs:
             git checkout master
             git pull
             git status
-            echo "DB_NAME=name_prod" > .env
+             echo "DB_NAME=${{ secrets.PRODUCTION_MYSQL_HOST }}" > .env
             echo "DB_HOST=host_prod" >> .env
